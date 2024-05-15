@@ -4,6 +4,8 @@ const app = express()
 
 app.use(express.json())
 
+app.use(express.static('dist'))
+
 morgan.token('body', req => {
 	return JSON.stringify(req.body)
   })
@@ -37,9 +39,6 @@ let countPeople = persons.length;
 let currentTime = new Date();
 // console.log(currentTime.toString());
 
-app.get('/', (request, response) => {
-	response.send(`<p>Phonebook has info for ${countPeople} people</p><p>${currentTime.toString()}</p>`)
-  })
 
 app.get('/info', (request, response) => {
   response.send(`<p>Phonebook has info for ${countPeople} people</p><p>${currentTime.toString()}</p>`)
