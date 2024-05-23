@@ -40,6 +40,7 @@ if(personName){
 	Phonebook.find({}).then(results => {
 		console.log('phonebook:')
 		results.forEach(result => {
+			
 			console.log(result.name + ' ' + result.number)
 		})
 		mongoose.connection.close()
